@@ -5,7 +5,12 @@
     <title>Document</title>
     <script src="bundle.js"></script>
 </head>
-<body>
+<body ng-app="bookNow">
     <h1>Test for webpack</h1>
+    Validate app still works: {{2 + 2}}
+    <div ng-controller="mainController as ctrl">
+        Outside of component: {{ ctrl.company.id }}
+        <locations company="ctrl.company"></locations>
+    </div>
 </body>
 </html>

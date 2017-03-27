@@ -1,5 +1,9 @@
-const css = require('../css/app.css');
+import angular from 'angular';
 
-console.log('My first step 11');
+import {locations} from './locations/locations';
+import MainController from './mainController';
 
-import string from './string';
+angular
+    .module('bookNow', [])
+    .controller('mainController', MainController)
+    .component('locations', locations);
