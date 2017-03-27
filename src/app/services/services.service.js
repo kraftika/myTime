@@ -1,14 +1,14 @@
-export default class LocationsService {
+export default class ServicesService {
     /*ngInject*/
     constructor($http) {
         this.$http = $http;
     }
 
-    getLocationsByCompany(id) {
-        let urlLocations = 'http://www.mytime.com/api/v2/companies/' + id +'/locations.json';
+    getServices(companyId, locationId) {
+        let urlServices= 'http://www.mytime.com/api/v2/companies/' + companyId +'/locations/'+ locationId + '.json';
 
         let httpRequest = {
-            url: urlLocations,
+            url: urlServices,
             method: 'GET',
             header: {
                 'Content-type': 'application/json'

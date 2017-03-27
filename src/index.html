@@ -6,11 +6,22 @@
     <script src="bundle.js"></script>
 </head>
 <body ng-app="bookNow">
-    <h1>Test for webpack</h1>
     Validate app still works: {{2 + 2}}
     <div ng-controller="mainController as ctrl">
-        Outside of component: {{ ctrl.company.id }}
-        <locations company="ctrl.company"></locations>
+        <div ng-show="!ctrl.locationSelected">
+            <locations company="ctrl.company" on-selected="ctrl.onSelectedLocation($event)" 
+                        ng-show="!ctrl.locationSelected">
+            </locations> 
+            <button ng-show="!ctrl.locationSelected">Close</button>
+        </div>
+
+        <div ng-show="ctrl.locationSelected">
+            <services company-location="ctrl.companyLocation" on-selected="ctrl.onSelectedService($event)">
+            </services>
+            <button ng-show="ctrl.locationSelected" ng-click="ctrl.goBack()">Back</button>
+        </div>
+
+
     </div>
 </body>
 </html>

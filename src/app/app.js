@@ -1,11 +1,16 @@
 import angular from 'angular';
 
-import { LocationsComponent } from './locations/locations.component';
 import MainController from './main.controller';
+import { LocationsComponent } from './locations/locations.component';
 import LocationsService from './locations/locations.service'
+
+import { ServicesComponent } from './services/services.component';
+import ServicesService from './services/services.service'
 
 angular
     .module('bookNow', [])
-    .service('locationsService', LocationsService)
     .controller('mainController', MainController)
-    .component('locations', LocationsComponent);
+    .service('locationsService', LocationsService)
+    .component('locations', LocationsComponent)
+    .service('servicesService', ServicesService)
+    .component('services', ServicesComponent);
