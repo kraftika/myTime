@@ -28,6 +28,11 @@ module.exports = {
                     use: ['css-loader']
                 }),
                 include: path.join(__dirname, 'src', 'css')
+            },
+            {
+                test: /\.html$/,
+                exclude: /node_modules/,
+                loader: 'raw-loader'
             }
         ]
     },

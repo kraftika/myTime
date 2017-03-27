@@ -1,9 +1,11 @@
 import angular from 'angular';
 
-import {locations} from './locations/locations';
-import MainController from './mainController';
+import { LocationsComponent } from './locations/locations.component';
+import MainController from './main.controller';
+import LocationsService from './locations/locations.service'
 
 angular
     .module('bookNow', [])
+    .service('locationsService', LocationsService)
     .controller('mainController', MainController)
-    .component('locations', locations);
+    .component('locations', LocationsComponent);
