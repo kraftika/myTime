@@ -17,7 +17,11 @@ export default class MainController {
         };
 
         this.locationSelected = true;
-        console.log('Company location: ', this.companyLocation);
+    }
+
+    onSelectedService(event) {
+        this.service = event.service;
+        console.log('Selected service: ', this.service);
     }
 
     goBack() {

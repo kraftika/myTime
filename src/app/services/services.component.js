@@ -7,7 +7,7 @@ class ServicesController {
 
     $onChanges() {
         this.services = [];
-        
+
         if (this.companyLocation.company && this.companyLocation.location) {
             let companyId = this.companyLocation.company;
             let locationId = this.companyLocation.location;
@@ -30,9 +30,7 @@ class ServicesController {
     isSelected(service) {
         this.onSelected({
             $event: {
-                service: { 
-                    id: service.id,
-                }
+                service: service
             }
         });
     }
