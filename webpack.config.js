@@ -26,13 +26,27 @@ module.exports = {
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: ['css-loader']
-                }),
-                include: path.join(__dirname, 'src', 'css')
+                })
             },
-            {
-                test: /\.html$/,
-                exclude: /node_modules/,
-                loader: 'raw-loader'
+            { 
+                test: /\.(png|jpg)$/, 
+                use: 'url-loader?limit=8192' 
+            },
+                        { 
+                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, 
+                use: 'file-loader'
+            },
+            { 
+                test: /\.(woff|woff2)$/, 
+                use: 'url-loader?prefix=font/&limit=5000' 
+            },
+            { 
+                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, 
+                use: 'url-loader?limit=10000&mimetype=application/octet-stream'
+            },
+            { 
+                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, 
+                use: 'url-loader?limit=10000&mimetype=image/svg+xml'
             }
         ]
     },

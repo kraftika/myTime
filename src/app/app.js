@@ -1,6 +1,8 @@
 import angular from 'angular';
 import uiBootstrap from 'angular-ui-bootstrap';
 
+import bootstrap from 'bootstrap/dist/css/bootstrap.css';
+
 import MainController from './main.controller';
 import { LocationsComponent } from './locations/locations.component';
 import LocationsService from './locations/locations.service'
