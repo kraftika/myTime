@@ -45,13 +45,14 @@ export default class MainController {
 
     openComponentModal() {
         var modalInstance = this.$uibModal.open({
-            animation: false,
+            animation: true,
             component: 'modalComponent',
             resolve: {
                 items: function () {
                     return ['unu', 'doi'];
                 }
-            }
+            }, 
+            company: this.company
         });
 
         modalInstance.result.then(function (selectedItem) {

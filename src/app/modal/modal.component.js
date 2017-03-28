@@ -2,11 +2,17 @@ class ModalController {
 
     $onInit() {
       this.items = this.resolve.items;
-
-      console.log(this.items);
       this.selected = {
         item: this.items[0]
       };
+
+      
+
+        console.log('Modal init');
+
+        this.company = { 
+            id: 40426 
+        };
     }
 
     ok() {
@@ -23,28 +29,11 @@ class ModalController {
 export const ModalComponent = {
     template: require('./modal.template.html'),
     bindings: {
+        companyId: '<',
         resolve: '<',
         close: '&',
         dismiss: '&'
     },
-    controller: function() {
-        var $ctrl = this;
-
-        console.log('controlle');
-
-        $ctrl.$onInit = function () {
-        $ctrl.items = $ctrl.resolve.items;
-        $ctrl.selected = {
-            item: $ctrl.items[0]
-        };
-        };
-
-        $ctrl.ok = function () {
-            $ctrl.close({$value: $ctrl.selected.item});
-        };
-
-        $ctrl.cancel = function () {
-            $ctrl.dismiss({$value: 'cancel'});
-        };
-    }
+    controller: ModalController,
+    controllerAs: 'ctrl'
 };
