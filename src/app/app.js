@@ -1,7 +1,7 @@
 import angular from 'angular';
 import uiBootstrap from 'angular-ui-bootstrap';
 
-import bootstrap from 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 import MainController from './main.controller';
 import { LocationsComponent } from './locations/locations.component';
@@ -19,4 +19,4 @@ angular
     .component('locations', LocationsComponent)
     .service('servicesService', ServicesService)
     .component('services', ServicesComponent)
-    .component('modal', ModalComponent);
+    .component('modalComponent', ModalComponent);

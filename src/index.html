@@ -7,8 +7,7 @@
 </head>
 <body ng-app="bookNow">
     <div ng-controller="mainController as ctrl">
-        <button type="button" class="btn btn-default" 
-                ng-click="ctrl.openComponentModal()">Book Now</button>
+        <button type="button" class="btn btn-default" ng-click="ctrl.openComponentModal()">Book Now</button>
 
         <div ng-show="!ctrl.locationSelected">
             <locations company="ctrl.company" on-selected="ctrl.onSelectedLocation($event)" 
@@ -18,9 +17,9 @@
         </div>
 
         <div ng-show="ctrl.locationSelected">
+            <button ng-show="ctrl.locationSelected" ng-click="ctrl.goBack()">Back</button>
             <services company-location="ctrl.companyLocation" on-selected="ctrl.onSelectedService($event)">
             </services>
-            <button ng-show="ctrl.locationSelected" ng-click="ctrl.goBack()">Back</button>
         </div>
 
 

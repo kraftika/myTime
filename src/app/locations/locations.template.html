@@ -1,0 +1,6 @@
+<ul ng-repeat="location in locationsCtrl.locations">
+    <li ng-click="locationsCtrl.isSelected(location)">
+        <div>{{location.description || location.company_id}} - {{location.street_address}}</div>
+        <div>{{location.city}}, {{location.state}}</div>
+    </li>
+</ul>

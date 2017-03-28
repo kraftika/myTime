@@ -27,16 +27,8 @@ class locationsController {
     }
 }
 
-// I was not able to load the template from outside as html file. I suspect webpack configuration is missing
-var template = '<ul ng-repeat="location in locationsCtrl.locations">' + 
-                    '<li ng-click="locationsCtrl.isSelected(location)">' + 
-                        '<div>{{location.description || location.company_id}} - {{location.street_address}}</div>' +
-                        '<div>{{location.city}}, {{location.state}}</div>' +
-                    '</li>' +
-                '</ul>';
-
 export const LocationsComponent = {
-    template: template,
+    template: require('./locations.template.html'),
     controllerAs: 'locationsCtrl',
     controller: locationsController,
     bindings: {
