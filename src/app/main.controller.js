@@ -3,61 +3,53 @@
 export default class MainController {
     /*ngInject*/
     constructor($uibModal) {
-        this.company = { 
-            id: 40426 
-        };
+        // this.company = { 
+        //     id: 40426 
+        // };
 
-        this.location = null;
-        this.companyLocation = {};
-        this.locationSelected = false;
+        // this.location = null;
+        // this.companyLocation = {};
+        // this.locationSelected = false;
 
         this.$uibModal = $uibModal;
-        this.items = ['item1', 'item2'];
+        // this.items = ['item1', 'item2'];
     }
 
-    onSelectedLocation(event) {
-        this.location = event.location;
-        this.companyLocation = {
-            company: this.company.id,
-            location: event.location.id
-        };
+    // onSelectedLocation(event) {
+    //     this.location = event.location;
+    //     this.companyLocation = {
+    //         company: this.company.id,
+    //         location: event.location.id
+    //     };
 
-        this.locationSelected = true;
-    }
+    //     this.locationSelected = true;
+    // }
 
-    onSelectedService(event) {
-        this.service = event.service;
-        console.log('Selected service: ', this.service);
-    }
+    // onSelectedService(event) {
+    //     this.service = event.service;
+    //     console.log('Selected service: ', this.service);
+    // }
 
-    goBack() {
-        this.locationSelected = false;
-        this.companyLocation.location = null;
-    }
+    // goBack() {
+    //     this.locationSelected = false;
+    //     this.companyLocation.location = null;
+    // }
 
-    ok() {
-        console.log('OK');
-    }
+    // ok() {
+    //     console.log('OK');
+    // }
 
-    cancel() {
-        console.log('cancel');
-    }
+    // cancel() {
+    //     console.log('cancel');
+    // }
 
     openComponentModal() {
         var modalInstance = this.$uibModal.open({
             animation: true,
             component: 'modalComponent',
-            resolve: {
-                items: function () {
-                    return ['unu', 'doi'];
-                }
-            }, 
-            company: this.company
         });
 
-        modalInstance.result.then(function (selectedItem) {
-            this.selected = selectedItem;
-        }, function () {
+        modalInstance.result.catch(() => {
             console.log('modal-component dismissed at: ' + new Date());
         });
     }

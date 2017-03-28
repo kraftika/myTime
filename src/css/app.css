@@ -6,3 +6,8 @@ body {
   font-size: 16px;
 }
 
+.modal .modal-body {
+    max-height: 300px;
+    overflow-y: auto;
+}
+

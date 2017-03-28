@@ -1,36 +1,47 @@
 class ModalController {
 
     $onInit() {
-      this.items = this.resolve.items;
-      this.selected = {
-        item: this.items[0]
-      };
-
-      
-
-        console.log('Modal init');
-
         this.company = { 
             id: 40426 
         };
+
+        this.companyLocation = {};
+        this.location = null;
+        this.locationSelected = false;      
     }
 
-    ok() {
-      this.close(
-          {$value: this.selected.item}
-        );
+    onSelectedLocation(event) {
+        this.location = event.location;
+        this.companyLocation = {
+            company: this.company.id,
+            location: event.location.id
+        };
+
+        this.locationSelected = true;
     }
 
-    cancel() {
-      this.dismiss({$value: 'cancel'});
+    onSelectedService(event) {
+        this.service = event.service;
+        console.log('Selected service: ', this.service);
+    }
+
+    goBack() {
+        this.locationSelected = false;
+        this.companyLocation.location = null;
+    }
+
+    close() {
+        this.dismiss({$value: 'closed'});
+    }
+
+    getModalTitle() {
+        return this.locationSelected ? 'Select a service' : 'Select a location';
     }
 }
 
 export const ModalComponent = {
     template: require('./modal.template.html'),
     bindings: {
-        companyId: '<',
-        resolve: '<',
         close: '&',
         dismiss: '&'
     },

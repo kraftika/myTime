@@ -1,5 +1,5 @@
-<ul ng-repeat="service in servicesCtrl.services">
-    <li ng-click="servicesCtrl.isSelected(service)">
+<ul class="list-group" ng-repeat="service in servicesCtrl.services">
+    <li class="list-group-item" ng-click="servicesCtrl.isSelected(service)">
         <div>{{service.name}}</div>
     </li>
 </ul>

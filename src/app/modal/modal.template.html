@@ -1,10 +1,18 @@
 <div class="modal-header">
-    <h3 class="modal-title" id="modal-title">Select a location...</h3>
+    <h3 class="modal-title" id="modal-title">{{ ctrl.getModalTitle() }}</h3>
 </div>
 <div class="modal-body" id="modal-body">
-    <locations company="ctrl.company" on-selected="ctrl.onSelectedLocation($event)" 
-                ng-show="!ctrl.locationSelected">
-    </locations> 
+
+    <div ng-show="!ctrl.locationSelected">
+        <locations company="ctrl.company" on-selected="ctrl.onSelectedLocation($event)" 
+                    ng-show="!ctrl.locationSelected">
+        </locations> 
+    </div>
+
+    <div ng-show="ctrl.locationSelected">
+        <services company-location="ctrl.companyLocation" on-selected="ctrl.onSelectedService($event)">
+        </services>
+    </div>
 
     <!--<div ng-show="!ctrl.locationSelected">
         <button ng-show="!ctrl.locationSelected">Close</button>
@@ -17,6 +25,8 @@
     Selected: <b>{{ ctrl.selected.item }}</b>-->
 </div>
 <div class="modal-footer">
-    <!--<button class="btn btn-primary" type="button" ng-click="ctrl.ok()">OK</button>-->
-    <button class="btn btn-default pull-left" type="button" ng-click="ctrl.cancel()">Close</button>
+    <button class="btn btn-default pull-left" type="button" 
+            ng-show="!ctrl.locationSelected" ng-click="ctrl.close()">Close</button>
+    <button class="btn btn-default pull-left" type="button" 
+            ng-show="ctrl.locationSelected" ng-click="ctrl.goBack()">Back</button>
 </div>
