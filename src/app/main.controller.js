@@ -1,12 +1,17 @@
+import { ModalComponent } from './modal/modal.component';
+
 export default class MainController {
-    constructor() {
+     /*ngInject*/
+    constructor($uibModal) {
         this.company = { 
             id: 40426 
         };
+
         this.location = null;
         this.companyLocation = {};
-
         this.locationSelected = false;
+
+        this.$uibModal = $uibModal;
     }
 
     onSelectedLocation(event) {
@@ -28,4 +33,22 @@ export default class MainController {
         this.locationSelected = false;
         this.companyLocation.location = null;
     }
+
+    openComponentModal() {
+        var modalInstance = this.$uibModal.open({
+            animation: false,
+            component: ModalComponent,
+            resolve: {
+                items: function () {
+                    return ['one', 'two', 'three'];
+                }
+            }
+        });
+
+        modalInstance.result.then(function (selectedItem) {
+            this.selected = selectedItem;
+        }, function () {
+            console.log('modal is dismissed');
+        });
+    };
 }

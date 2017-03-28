@@ -6,8 +6,10 @@
     <script src="bundle.js"></script>
 </head>
 <body ng-app="bookNow">
-    Validate app still works: {{2 + 2}}
     <div ng-controller="mainController as ctrl">
+        <button type="button" class="btn btn-default" 
+                ng-click="ctrl.openComponentModal()">Book Now</button>
+
         <div ng-show="!ctrl.locationSelected">
             <locations company="ctrl.company" on-selected="ctrl.onSelectedLocation($event)" 
                         ng-show="!ctrl.locationSelected">
